@@ -15,10 +15,12 @@ const LoginPage = () => {
       navigate("/homepage");
     }
   }, [navigate]);
+  // handle login data
   const handleChange = (e) => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
   };
 
+  // handle the  submit data
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -26,10 +28,12 @@ const LoginPage = () => {
         import.meta.env.VITE_API_URL,
         loginData
       );
+      //check if valid user then navigate to home page otherwise alert invalid user
       if (response.status === 200) {
         localStorage.setItem("token", response.data.token);
         navigate("/homepage");
       }
+      // reset login state data
       setLoginData({ email: "", password: "" });
     } catch (error) {
       console.log(error);
