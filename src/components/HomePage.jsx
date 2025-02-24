@@ -44,6 +44,7 @@ const HomePage = () => {
     ]);
     // reset our product data state
     setProductData({ product: "", price: "" });
+    // close the modal then submitted
     setIsModalOpen(false);
   };
   //handle search product name and price
@@ -66,7 +67,7 @@ const HomePage = () => {
 
           {/* Right: Actions */}
           <div className="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
-            {/* Add account button */}
+{/*handle search button  */}
             <SearchBar onChange={handleSearchProduct} />
 
             <button
@@ -79,6 +80,7 @@ const HomePage = () => {
               >
                 <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
               </svg>
+                          {/* Add account button */}
               <span className=" ml-2">Add Product</span>
             </button>
           </div>
@@ -196,7 +198,7 @@ const HomePage = () => {
                   Login
                 </h1>
 
-                {/* Email Field */}
+                {/* product name */}
                 <div>
                   <label className="text-sm font-medium" htmlFor="productName">
                     Product Name:
@@ -213,7 +215,7 @@ const HomePage = () => {
                   />
                 </div>
 
-                {/* Password Field */}
+                {/* price Field */}
                 <div>
                   <label className="text-sm font-medium" htmlFor="price">
                     Price
@@ -230,7 +232,7 @@ const HomePage = () => {
                   />
                 </div>
 
-                {/* Submit Button */}
+                {/*add product Submit Button */}
                 <button
                   type="submit"
                   className="border transition-colors focus:ring-2 p-2 disabled:cursor-not-allowed bg-sky-600 hover:bg-sky-700 active:bg-sky-800 text-white rounded-lg"
@@ -238,6 +240,7 @@ const HomePage = () => {
                   Add Product
                 </button>
               </form>
+{/*              handle the close modal create product modal */}
               <button
                 className="mt-4 px-4 py-2 bg-red-500 text-white rounded"
                 onClick={() => setIsModalOpen(false)}
